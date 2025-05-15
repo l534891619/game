@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monstorgame.xyz - Play Other Popular HTML5 Games!</title>
+    <meta name="description" content="Dive into Monstorgame.xyz to play Monster Survivors and discover other top HTML5 games like a Diablo-like JS Demo, HexGL Racer, Cut the Rope, and more! All games playable directly on this page.">
+    <link rel="canonical" href="https://monstorgame.xyz/">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Apply Inter font to the body */
+        body {
+            font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth; /* Smooth scroll for anchor links */
+        }
+
+        /* Styles for the game iframe container to make it responsive and sized appropriately */
+        .game-iframe-container {
+            position: relative;
+            width: 100%;
+            overflow: hidden;
+            height: 70vh; /* 70% of the viewport height */
+            max-height: 700px; /* Maximum height for very large screens */
+            min-height: 400px; /* Minimum height for smaller screens */
+            background-color: #000; /* Black background for the iframe container */
+        }
+
+        .game-iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0; /* Remove default iframe border */
+        }
+
+        /* Ensure cards in a grid have equal height and button aligns to bottom */
+        .game-card {
+            display: flex;
+            flex-direction: column;
+        }
+        .game-card-content {
+            flex-grow: 1;
+        }
+        /* Style for the clickable game buttons */
+        .play-game-btn {
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 antialiased">
+
+    <header class="py-8 md:py-12 bg-white shadow-sm sticky top-0 z-50">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold text-slate-900">
+                Monstorgame.xyz
+            </h1>
+            <p class="mt-3 text-lg sm:text-xl text-slate-600 max-w-3xl mx-auto">
+                Your ultimate destination for many great HTML5 games, all playable here!
+            </p>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-12">
+
+        <section id="play-game-section" aria-labelledby="current-game-heading" class="mb-12 md:mb-16">
+            <h2 id="current-game-heading" class="text-3xl sm:text-4xl font-semibold text-slate-800 text-center mb-6 md:mb-8">
+                Now Playing: Monster Survivors
+            </h2>
+            <div class="game-iframe-container rounded-lg shadow-xl overflow-hidden mx-auto max-w-6xl border border-slate-300">
+                <iframe
+                    id="game-iframe-player"
+                    class="game-iframe"
+                    src="https://cloud.onlinegames.io/games/2025/unity/monster-survivors/index-og.html"
+                    title="Monstorgame.xyz - Game Window"
+                    allowfullscreen
+                    sandbox="allow-scripts allow-same-origin allow-popups allow-fullscreen"
+                ></iframe>
+            </div>
+            <div class="text-center mt-4">
+                <button id="fullscreen-button" class="bg-gray-700 hover:bg-gray-800 text-white font-semibold py-2 px-4 rounded-md transition-colors duration-300">
+                    Toggle Fullscreen
+                </button>
+            </div>
+            <p id="game-loading-message" class="text-center mt-2 text-sm text-slate-500">
+                Game loading... If you experience issues, please refresh the page or check your browser's WebGL support.
+            </p>
+        </section>
+
+        <section id="about" aria-labelledby="about-heading" class="mb-12 md:mb-16 bg-white p-6 sm:p-8 rounded-lg shadow-lg">
+            <h2 id="about-heading" class="text-2xl sm:text-3xl font-semibold text-slate-800 mb-4">
+                About Monstorgame.xyz
+            </h2>
+            <div class="space-y-4 text-slate-700 leading-relaxed">
+                <p>
+                    Welcome to Monstorgame.xyz, your direct portal to many popular HTML5 games! We are passionate about providing a seamless and immersive gaming experience, allowing you to dive straight into the excitement directly from your web browser.
+                </p>
+                <p>
+                    Our platform is designed for ease of use and optimal performance across all devices. At Monstorgame.xyz, the focus is on instant fun – no complicated setups, just pure gameplay. Select a game from the list below and start playing immediately! Some games are hosted by third parties and their availability may vary.
+                </p>
+            </div>
+        </section>
+
+        <section id="popular-games" aria-labelledby="popular-games-heading" class="mb-12 md:mb-16">
+            <h2 id="popular-games-heading" class="text-3xl sm:text-4xl font-semibold text-slate-800 text-center mb-8 md:mb-10">
+                Explore & Play HTML5 Games
+            </h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+                <div class="game-card bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 ease-in-out">
+                    <div class="game-card-content">
+                        <h3 class="text-xl font-semibold text-blue-700 mb-2">Monster Survivors</h3>
+                        <p class="text-sm text-slate-500 mb-1"><span class="font-medium">Type:</span> Action Survival</p>
+                        <p class="text-slate-600 mb-4 text-sm leading-relaxed">Face relentless waves of monsters, upgrade your abilities, and fight to be the last one standing in this thrilling survival game.</p>
+                    </div>
+                    <button onclick="loadGame('https://cloud.onlinegames.io/games/2025/unity/monster-survivors/index-og.html', 'Monster Survivors')" class="play-game-btn mt-auto inline-block bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-md text-center transition-colors duration-300">
+                        Play Now
+                    </button>
+                </div>
+
+                <div class="game-card bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 ease-in-out">
+                     <div class="game-card-content">
+                        <h3 class="text-xl font-semibold text-blue-700 mb-2">Diablo JS Demo</h3>
+                        <p class="text-sm text-slate-500 mb-1"><span class="font-medium">Type:</span> Action RPG</p>
+                        <p class="text-slate-600 mb-4 text-sm leading-relaxed">A Diablo-like action RPG demo built with JavaScript. Explore dungeons and fight monsters. (Hosted via GitHub Pages from an open-source project.)</p>
+                    </div>
+                    <button onclick="loadGame('https://mitallast.github.io/diablo-js/', 'Diablo JS Demo')" class="play-game-btn mt-auto inline-block bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-md text-center transition-colors duration-300">
+                        Play Now
+                    </button>
+                </div>
+
+                <div class="game-card bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 ease-in-out">
+                    <div class="game-card-content">
+                        <h3 class="text-xl font-semibold text-blue-700 mb-2">HexGL Racer</h3>
+                        <p class="text-sm text-slate-500 mb-1"><span class="font-medium">Type:</span> 3D Futuristic Racing</p>
+                        <p class="text-slate-600 mb-4 text-sm leading-relaxed">Experience fast-paced, futuristic racing in this WebGL-powered game. Control your ship and compete for the best time!</p>
+                    </div>
+                    <button onclick="loadGame('https://hexgl.bkcore.com/', 'HexGL Racer')" class="play-game-btn mt-auto inline-block bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-md text-center transition-colors duration-300">
+                        Play Now
+                    </button>
+                </div>
+
+                <div class="game-card bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 ease-in-out">
+                    <div class="game-card-content">
+                        <h3 class="text-xl font-semibold text-blue-700 mb-2">Cut the Rope</h3>
+                        <p class="text-sm text-slate-500 mb-1"><span class="font-medium">Type:</span> Physics Puzzle Game</p>
+                        <p class="text-slate-600 mb-4 text-sm leading-relaxed">Feed candy to Om Nom by cutting ropes and using various physics-based mechanics to solve puzzles.</p>
+                    </div>
+                    <button onclick="loadGame('http://famobi.com/cut-the-rope/?locale=en', 'Cut the Rope')" class="play-game-btn mt-auto inline-block bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-md text-center transition-colors duration-300">
+                        Play Now
+                    </button>
+                </div>
+
+                <div class="game-card bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 ease-in-out">
+                    <div class="game-card-content">
+                        <h3 class="text-xl font-semibold text-blue-700 mb-2">Little Alchemy 2</h3>
+                        <p class="text-sm text-slate-500 mb-1"><span class="font-medium">Type:</span> Crafting Puzzle Game</p>
+                        <p class="text-slate-600 mb-4 text-sm leading-relaxed">Combine elements to discover new items. (Note: This game is from the official site and may not embed perfectly.)</p>
+                    </div>
+                    <button onclick="loadGame('https://littlealchemy2.com/', 'Little Alchemy 2')" class="play-game-btn mt-auto inline-block bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-md text-center transition-colors duration-300">
+                        Play Now
+                    </button>
+                </div>
+
+                <div class="game-card bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 ease-in-out">
+                    <div class="game-card-content">
+                        <h3 class="text-xl font-semibold text-blue-700 mb-2">Pac-Man</h3>
+                        <p class="text-sm text-slate-500 mb-1"><span class="font-medium">Type:</span> Classic Arcade Game</p>
+                        <p class="text-slate-600 mb-4 text-sm leading-relaxed">Navigate the maze, eat dots, and avoid ghosts. (HTML5 version, provided via CodePen.)</p>
+                    </div>
+                    <button onclick="loadGame('https://codepen.io/hellokatili/full/xwKRmo', 'Pac-Man')" class="play-game-btn mt-auto inline-block bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-md text-center transition-colors duration-300">
+                        Play Now
+                    </button>
+                </div>
+            </div>
+        </section>
+        
+        </main>
+
+    <footer class="bg-slate-800 text-slate-300 py-8 text-center">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <p>&copy; <span id="currentYear"></span> Monstorgame.xyz. All Rights Reserved.</p>
+            <p class="text-sm mt-1">Your home for Monster Survivors and other thrilling online gaming adventures.</p>
+        </div>
+    </footer>
+
+    <script>
+        // JavaScript to dynamically set the current year in the footer
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+        // Get references to the iframe and the heading
+        const gameIframe = document.getElementById('game-iframe-player');
+        const currentGameHeading = document.getElementById('current-game-heading');
+        const gameLoadingMessage = document.getElementById('game-loading-message');
+        const gameSection = document.getElementById('play-game-section');
+        const fullscreenButton = document.getElementById('fullscreen-button');
+
+        /**
+         * Loads a new game into the iframe and updates the heading.
+         * @param {string} gameUrl - The URL of the game to load.
+         * @param {string} gameTitle - The title of the game.
+         */
+        function loadGame(gameUrl, gameTitle) {
+            // Update the heading
+            currentGameHeading.textContent = 'Now Playing: ' + gameTitle;
+            
+            // Show loading message and then set iframe src
+            gameLoadingMessage.textContent = 'Loading ' + gameTitle + '... Please wait.';
+            gameIframe.src = 'about:blank'; // Clear previous game first
+            
+            setTimeout(() => {
+                gameIframe.src = gameUrl; 
+            }, 100);
+
+            gameSection.scrollIntoView({ behavior: 'smooth' });
+
+            setTimeout(() => {
+                 gameLoadingMessage.textContent = 'Enjoy playing ' + gameTitle + '! If you experience issues, try refreshing or the game might not support embedding.';
+            }, 3000); 
+        }
+
+        gameIframe.onload = function() {
+            const currentTitle = currentGameHeading.textContent.replace('Now Playing: ', '');
+            if (gameIframe.src !== 'about:blank') {
+                 gameLoadingMessage.textContent = 'Successfully loaded ' + currentTitle + '. Enjoy!';
+            }
+            setTimeout(() => {
+                // gameLoadingMessage.textContent = ''; 
+            }, 7000);
+        };
+        gameIframe.onerror = function() {
+            const currentTitle = currentGameHeading.textContent.replace('Now Playing: ', '');
+            gameLoadingMessage.textContent = 'Sorry, there was an error loading ' + currentTitle + '. This game might not support embedding or there could be a network issue.';
+        };
+
+        /**
+         * Toggles fullscreen mode for the game iframe.
+         */
+        function toggleFullscreen() {
+            if (!document.fullscreenElement &&    // Standard syntax
+                !document.mozFullScreenElement && // Firefox
+                !document.webkitFullscreenElement && // Chrome, Safari and Opera
+                !document.msFullscreenElement) {  // IE/Edge
+                // Enter fullscreen mode
+                if (gameIframe.requestFullscreen) {
+                    gameIframe.requestFullscreen();
+                } else if (gameIframe.mozRequestFullScreen) { /* Firefox */
+                    gameIframe.mozRequestFullScreen();
+                } else if (gameIframe.webkitRequestFullscreen) { /* Chrome, Safari & Opera */
+                    gameIframe.webkitRequestFullscreen();
+                } else if (gameIframe.msRequestFullscreen) { /* IE/Edge */
+                    gameIframe.msRequestFullscreen();
+                }
+                fullscreenButton.textContent = 'Exit Fullscreen';
+            } else {
+                // Exit fullscreen mode
+                if (document.exitFullscreen) {
+                    document.exitFullscreen();
+                } else if (document.mozCancelFullScreen) { /* Firefox */
+                    document.mozCancelFullScreen();
+                } else if (document.webkitExitFullscreen) { /* Chrome, Safari and Opera */
+                    document.webkitExitFullscreen();
+                } else if (document.msExitFullscreen) { /* IE/Edge */
+                    document.msExitFullscreen();
+                }
+                fullscreenButton.textContent = 'Toggle Fullscreen';
+            }
+        }
+
+        // Add event listener to the fullscreen button
+        if (fullscreenButton) {
+            fullscreenButton.addEventListener('click', toggleFullscreen);
+        }
+
+        // Listen for fullscreen change events to update button text
+        document.addEventListener('fullscreenchange', () => {
+            if (!document.fullscreenElement) fullscreenButton.textContent = 'Toggle Fullscreen';
+        });
+        document.addEventListener('mozfullscreenchange', () => { // Firefox
+            if (!document.mozFullScreenElement) fullscreenButton.textContent = 'Toggle Fullscreen';
+        });
+        document.addEventListener('webkitfullscreenchange', () => { // Chrome, Safari, Opera
+            if (!document.webkitFullscreenElement) fullscreenButton.textContent = 'Toggle Fullscreen';
+        });
+        document.addEventListener('msfullscreenchange', () => { // IE/Edge
+            if (!document.msFullscreenElement) fullscreenButton.textContent = 'Toggle Fullscreen';
+        });
+
+    </script>
+
+</body>
+</html>
